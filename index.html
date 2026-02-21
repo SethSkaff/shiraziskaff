@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shirazi Skaff | Luxury Concierge Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="auth-overlay" class="auth-overlay">
+      <article class="auth-card">
+        <img src="assets/welcome-screen.png" alt="Welcome" class="welcome-image" />
+        <div id="auth-choice" class="auth-section">
+          <button id="show-login" type="button">Log In</button>
+          <button id="show-signup" type="button" class="ghost">Sign Up</button>
+        </div>
+        <form id="login-form" class="auth-section hidden form-grid">
+          <label>Email / Username <input name="email" required /></label>
+          <label>Password <input name="password" type="password" required /></label>
+          <button type="submit">Enter</button>
+        </form>
+        <form id="signup-account-form" class="auth-section hidden form-grid">
+          <label>Email / Username <input name="email" required /></label>
+          <label>Password <input name="password" type="password" required /></label>
+          <button type="submit">Continue</button>
+        </form>
+        <form id="signup-profile-form" class="auth-section hidden form-grid">
+          <input type="hidden" name="email" />
+          <input type="hidden" name="password" />
+          <label>Name <input name="name" required /></label>
+          <label>Phone <input name="phone" required /></label>
+          <label>Sex
+            <select name="sex" required><option value="">Select</option><option>Male</option><option>Female</option><option>Non-binary</option></select>
+          </label>
+          <label>Race
+            <select name="race" required><option value="">Select</option><option>Asian</option><option>Black</option><option>Latino</option><option>Middle Eastern</option><option>White</option><option>Other</option></select>
+          </label>
+          <label>Zip Code <input name="zip" pattern="\d{5}" required /></label>
+          <button type="submit">Create Account</button>
+        </form>
+        <p id="auth-status" class="status"></p>
+      </article>
+    </div>
+
+    <header class="topbar">
+      <img src="assets/brand-logo.png" alt="Shirazi Skaff logo" class="header-logo" />
+      <nav>
+        <button class="tab-btn active" data-tab="user">Client</button>
+        <button class="tab-btn" data-tab="settings">Settings</button>
+        <button class="tab-btn" data-tab="admin" id="admin-tab">Admin</button>
+        <button id="logout" class="tab-btn">Log Out</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="user" class="tab-panel active">
+        <article class="card filter-shell minimal-filter-shell">
+          <h2>Refined Match Filters</h2>
+          <p class="status" id="filter-summary">No Preference across all filters.</p>
+          <div class="filter-actions"><button type="button" id="reopen-filters">Open Filter Preferences</button><button type="button" id="clear-filters" class="ghost-inline">Clear Filters</button></div>
+        </article>
+
+        <section>
+          <h2>Companion Gallery</h2>
+          <div id="escort-grid" class="escort-grid"></div>
+        </section>
+
+        <section class="card">
+          <h2>Your Upcoming Reservations</h2>
+          <ul id="client-bookings" class="list"></ul>
+        </section>
+      </section>
+
+      <section id="settings" class="tab-panel">
+        <article class="card">
+          <h2>Account Settings</h2>
+          <p id="account-id" class="status"></p>
+          <form id="client-form" class="form-grid two-col">
+            <label>Full Name <input name="name" required /></label>
+            <label>Phone <input name="phone" required /></label>
+            <label>Sex
+              <select name="sex" required><option value="">Select</option><option>Male</option><option>Female</option><option>Non-binary</option></select>
+            </label>
+            <label>Race
+              <select name="race" required><option value="">Select</option><option>Asian</option><option>Black</option><option>Latino</option><option>Middle Eastern</option><option>White</option><option>Other</option></select>
+            </label>
+            <label>Zip Code <input name="zip" pattern="\d{5}" required /></label>
+            <button type="submit">Save Settings</button>
+          </form>
+        </article>
+      </section>
+
+      <section id="admin" class="tab-panel">
+        <article class="card">
+          <h2>Admin Dashboard</h2>
+          <div class="dashboard-nav">
+            <button type="button" class="module-btn active" data-module="module-companion">Companion Adder</button>
+            <button type="button" class="module-btn" data-module="module-analytics">Analytics</button>
+            <button type="button" class="module-btn" data-module="module-schedule">Schedule</button>
+            <button type="button" class="module-btn" data-module="module-email">Email</button>
+            <button type="button" class="module-btn" data-module="module-team">Team</button>
+          </div>
+        </article>
+
+        <article id="module-companion" class="card module active">
+          <h3>Add Companion Profile</h3>
+          <form id="escort-form" class="form-grid two-col">
+            <label>Name <input name="name" required /></label>
+            <label>Sex <select name="sex" required><option>Female</option><option>Male</option><option>Non-binary</option></select></label>
+            <label>Race <select name="race" required><option>Asian</option><option>Black</option><option>Latino</option><option>Middle Eastern</option><option>White</option><option>Other</option></select></label>
+            <label>Zip Code <input name="zip" pattern="\d{5}" required /></label>
+            <label>Max Drive Distance (mi) <input name="driveRadius" type="number" min="1" required /></label>
+            <fieldset class="pair-field"><legend>Height</legend><div><label>Feet <select name="heightFt"></select></label><label>Inches <select name="heightIn"></select></label></div></fieldset>
+            <label>Weight (lbs) <input name="weightLbs" type="number" min="70" max="500" required /></label>
+            <label>Background <textarea name="bio" rows="3" required></textarea></label>
+            <label>Preferred client sexes <select name="prefSexes" multiple size="3"><option>Male</option><option>Female</option><option>Non-binary</option></select></label>
+
+            <fieldset class="race-checks">
+              <legend>Preferred Client Races</legend>
+              <label><input type="checkbox" name="prefRaceAny" value="any" checked /> No Preference</label>
+              <label><input type="checkbox" name="prefRaces" value="Asian" /> Asian</label>
+              <label><input type="checkbox" name="prefRaces" value="Black" /> Black</label>
+              <label><input type="checkbox" name="prefRaces" value="Latino" /> Latino</label>
+              <label><input type="checkbox" name="prefRaces" value="Middle Eastern" /> Middle Eastern</label>
+              <label><input type="checkbox" name="prefRaces" value="White" /> White</label>
+              <label><input type="checkbox" name="prefRaces" value="Other" /> Other</label>
+            </fieldset>
+
+            <fieldset class="availability-builder">
+              <legend>Availability Builder</legend>
+              <div class="availability-layout">
+                <div class="availability-left">
+                  <label>Month View <input name="month" type="month" /></label>
+                  <div class="weekday-pills">
+                    <label><input type="checkbox" value="0" name="weekday" />Sun</label><label><input type="checkbox" value="1" name="weekday" />Mon</label><label><input type="checkbox" value="2" name="weekday" />Tue</label><label><input type="checkbox" value="3" name="weekday" />Wed</label><label><input type="checkbox" value="4" name="weekday" />Thu</label><label><input type="checkbox" value="5" name="weekday" />Fri</label><label><input type="checkbox" value="6" name="weekday" />Sat</label>
+                  </div>
+                  <label>Specific Date <input name="singleDate" type="date" /></label>
+                </div>
+                <div class="availability-right">
+                  <label>Earliest Time <input name="earlyTime" type="time" required /></label>
+                  <label>Latest Time <input name="lateTime" type="time" required /></label>
+                  <div class="availability-actions">
+                    <label>Time Preset
+                      <select id="time-preset">
+                        <option value="">Custom</option><option value="09:00-13:00">Morning (9a-1p)</option><option value="13:00-18:00">Afternoon (1p-6p)</option><option value="18:00-23:00">Evening (6p-11p)</option>
+                      </select>
+                    </label>
+                    <button id="set-weekdays" type="button">Weekdays</button>
+                    <button id="set-weekends" type="button">Weekends</button>
+                    <button id="add-availability" type="button">Add Selection</button>
+                    <button id="clear-availability" type="button">Clear All</button>
+                  </div>
+                </div>
+              </div>
+              <ul id="availability-preview" class="list"></ul>
+            </fieldset>
+
+            <fieldset class="cropper">
+              <legend>Images Upload + Crop</legend>
+              <label>Upload Images (recommended 3) <input id="image-upload" name="images" type="file" accept="image/*" multiple /></label><p class="hint">Tip: Click thumbnails to switch active image. Use zoom and shift to frame each portrait.</p>
+              <div class="crop-controls">
+                <button type="button" id="prev-image">Previous</button>
+                <span id="image-counter">No images selected</span>
+                <button type="button" id="next-image">Next</button>
+                <button type="button" id="remove-image">Remove Active</button>
+              </div>
+              <div class="crop-sliders">
+                <label>Zoom <input type="range" id="crop-zoom" min="1" max="2" step="0.1" value="1" /></label>
+                <label>Vertical Shift <input type="range" id="crop-y" min="0" max="100" value="50" /></label>
+              </div>
+              <div class="crop-preview-wrap">
+                <div id="active-crop-preview" class="active-crop-preview"></div>
+                <div id="crop-preview" class="crop-preview"></div>
+              </div>
+            </fieldset>
+            <button type="submit">Publish Companion</button>
+          </form>
+        </article>
+
+        <article id="module-analytics" class="card module">
+          <h3>Platform Analytics & Accounts Registry</h3>
+          <div id="stats" class="stats"></div>
+          <h4>All Accounts</h4>
+          <ul id="account-registry" class="list"></ul>
+        </article>
+
+        <article id="module-schedule" class="card module">
+          <h3>Schedule Manager</h3>
+          <form id="schedule-form" class="form-grid compact">
+            <label>Companion <select name="escortId" id="escort-select"></select></label>
+            <label>Client ID <input name="clientId" required placeholder="ACC-00001" /></label>
+            <label>Client Name <input name="client" required /></label>
+            <label>Date <input name="date" type="date" required /></label>
+            <label>Start Time <input name="startTime" type="time" required /></label>
+            <label>End Time <input name="endTime" type="time" required /></label>
+            <button type="submit">Book & Block Slot</button>
+          </form>
+          <ul id="schedule-list" class="list"></ul>
+        </article>
+
+        <article id="module-email" class="card module">
+          <h3>Company Emails</h3>
+          <ul id="emails" class="list"></ul>
+          <h4>Interested Clients</h4>
+          <ul id="interested" class="list"></ul>
+        </article>
+
+        <article id="module-team" class="card module">
+          <h3>Team Access</h3>
+          <form id="admin-form" class="form-grid compact">
+            <label>New Admin Username/Email <input name="email" required /></label>
+            <label>Password <input name="password" type="password" required /></label>
+            <button type="submit">Create Admin Account</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <dialog id="quick-filter-dialog">
+      <article class="quick-filter-card">
+        <h3>Set Your Preferences</h3>
+        <form id="quick-filter-form" class="quick-filter-grid">
+          <div><label>Sex</label><select name="sex"><option value="">No Preference</option><option>Male</option><option>Female</option><option>Non-binary</option></select></div>
+          <div><label>Race</label><select name="races"><option value="">No Preference</option><option>Asian</option><option>Black</option><option>Latino</option><option>Middle Eastern</option><option>White</option><option>Other</option></select></div>
+          <div><label>Min Height</label><select name="minHeightFt"></select></div>
+          <div><label>Min Inches</label><select name="minHeightIn"></select></div>
+          <div><label>Max Height</label><select name="maxHeightFt"></select></div>
+          <div><label>Max Inches</label><select name="maxHeightIn"></select></div>
+          <div><label>Min Weight (lbs)</label><input name="minWeight" type="number" placeholder="No Preference" /></div>
+          <div><label>Max Weight (lbs)</label><input name="maxWeight" type="number" placeholder="No Preference" /></div>
+          <div><label>Date</label><input name="date" type="date" /></div>
+          <div><label>Start Time</label><input name="startTime" type="time" /></div>
+          <div><label>End Time</label><input name="endTime" type="time" /></div>
+          <div class="quick-actions"><button type="button" id="cancel-quick-filter" class="ghost-inline">Cancel</button><button type="button" id="reset-quick-filter" class="ghost-inline">Reset</button><button type="submit">Start Browsing</button></div>
+        </form>
+      </article>
+    </dialog>
+
+    <dialog id="profile-modal">
+      <article class="modal-content">
+        <button id="close-modal" class="close" type="button">✕</button>
+        <div id="modal-body"></div>
+      </article>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
