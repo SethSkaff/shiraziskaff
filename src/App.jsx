@@ -5,7 +5,6 @@ import PageMotion from "./components/PageMotion";
 import ScrollToTop from "./components/ScrollToTop";
 import About from "./pages/About";
 import AirMix from "./pages/AirMix";
-import Careers from "./pages/Careers";
 import Coach from "./pages/Coach";
 import Contact from "./pages/Contact";
 import Crave from "./pages/Crave";
@@ -26,7 +25,6 @@ export default function App() {
         <Route path="/products/airmix" element={<AirMix />} />
         <Route path="/products/crave" element={<Crave />} />
         <Route path="/about" element={<About />} />
-        <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

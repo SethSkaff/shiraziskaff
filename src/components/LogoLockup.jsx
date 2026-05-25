@@ -6,20 +6,17 @@ export default function LogoLockup({
   to,
   size = 24,
   product = false,
-  brand = !product && /sse-double-s/i.test(mark || ""),
   className = "",
 }) {
   const isCoach = /coach/i.test(mark || "");
   const content = (
-    <span className={`logo-lockup ${brand ? "logo-lockup--brand" : ""} ${className}`.trim()}>
-      <span className={brand ? "logo-lockup__mark-shell" : undefined} style={brand ? { width: size, height: size } : undefined}>
-        <img
-          className={`logo-lockup__mark ${isCoach ? "logo-lockup__mark--coach" : ""}`}
-          src={mark}
-          alt=""
-          style={{ width: brand ? Math.round(size * 0.68) : size, height: brand ? Math.round(size * 0.68) : size }}
-        />
-      </span>
+    <span className={`logo-lockup ${className}`.trim()}>
+      <img
+        className={`logo-lockup__mark ${isCoach ? "logo-lockup__mark--coach" : ""}`}
+        src={mark}
+        alt=""
+        style={{ width: size, height: size }}
+      />
       <span
         className={product ? "logo-lockup__wordmark logo-lockup__wordmark--product" : "logo-lockup__wordmark"}
       >

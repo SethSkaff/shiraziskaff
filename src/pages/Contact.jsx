@@ -1,3 +1,5 @@
+import SectionLabel from "../components/SectionLabel";
+
 const inquiries = [
   { label: "Partnerships", subject: "Partnership inquiry" },
   { label: "Press", subject: "Press inquiry" },
@@ -9,7 +11,7 @@ export default function Contact() {
     <main className="page-transition">
       <section className="page-hero hero-gradient contact-hero">
         <div className="container page-hero__inner">
-          <p className="section-label">01 / CONTACT</p>
+          <SectionLabel>01 / CONTACT</SectionLabel>
           <h1 className="display">Start the conversation.</h1>
           <p>We read every note and aim to respond within two business days.</p>
           <a className="contact-email" href="mailto:contact@shiraziskaff.com">
@@ -20,7 +22,7 @@ export default function Contact() {
 
       <section className="section-block contact-section">
         <div className="container">
-          <p className="section-label">02 / INQUIRIES</p>
+          <SectionLabel>02 / INQUIRIES</SectionLabel>
           {inquiries.map((inquiry) => (
             <a
               className="role-row"

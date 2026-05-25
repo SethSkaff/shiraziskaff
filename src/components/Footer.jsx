@@ -6,11 +6,10 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="site-footer__top">
-          <LogoLockup size={42} />
+          <LogoLockup size={63} to="/" />
           <nav className="site-footer__links" aria-label="Footer navigation">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
-            <Link to="/careers">Careers</Link>
             <Link to="/contact">Contact</Link>
           </nav>
           <a className="site-footer__email" href="mailto:contact@shiraziskaff.com">

@@ -5,7 +5,6 @@ import LogoLockup from "./LogoLockup";
 const navItems = [
   { label: "Products", to: "/#products" },
   { label: "About", to: "/about" },
-  { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -23,7 +22,7 @@ export default function Nav() {
   return (
     <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
       <div className="site-nav__inner container">
-        <LogoLockup to="/" size={36} />
+        <LogoLockup to="/" size={54} />
         <nav className="site-nav__links" aria-label="Primary navigation">
           {navItems.map((item) =>
             item.to.startsWith("/#") ? (

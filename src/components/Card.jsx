@@ -7,11 +7,12 @@ export default function Card({
   children,
   className = "",
   accent,
+  style,
   tall = false,
 }) {
   const ref = useRef(null);
   const classNames = `crafted-card ${tall ? "crafted-card--tall" : ""} ${className}`.trim();
-  const style = accent ? { "--card-accent": accent } : undefined;
+  const cardStyle = { ...(style || {}), ...(accent ? { "--card-accent": accent } : {}) };
 
   function handleMove(event) {
     const card = ref.current;
@@ -32,7 +33,7 @@ export default function Card({
   }
 
   const content = (
-    <Component className={classNames} onMouseMove={handleMove} onMouseLeave={handleLeave} ref={ref} style={style}>
+    <Component className={classNames} onMouseMove={handleMove} onMouseLeave={handleLeave} ref={ref} style={cardStyle}>
       {children}
     </Component>
   );

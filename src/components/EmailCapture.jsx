@@ -51,7 +51,7 @@ export default function EmailCapture({ productName = "SSE", subject = "Early acc
           {status === "loading" ? "Opening email" : "Request access"}
         </button>
       </div>
-      <p className={`email-capture__status email-capture__status--${status}`} id={`email-${productName}-status`}>
+      <p className={`email-capture__status email-capture__status--${status}`} id={`email-${productName}-status`} aria-live="polite" aria-atomic="true">
         {status === "error" && "Enter a valid email address."}
         {status === "success" && "Opening your email client with the request prepared."}
       </p>

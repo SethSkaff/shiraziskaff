@@ -30,27 +30,13 @@ export default function ProductPage({ product }) {
         </div>
       </section>
 
-      {product.sections.map((section) => (
-        <section className="section-block product-section" key={section.label}>
-          <div className="container product-section__grid">
-            <SectionLabel>{section.label}</SectionLabel>
-            <div>
-              <h2 className="display">{section.title}</h2>
-              <p>{section.body}</p>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <section className="section-block product-cta">
-        <div className="container product-cta__inner">
-          <SectionLabel>07 / EARLY ACCESS</SectionLabel>
-          <div>
-            <h2 className="display">Help shape {product.name} before launch.</h2>
-            <p>
-              We are talking to first users while the product is still narrow. Tell us where
-              the current alternatives fail and what would make this worth using every week.
-            </p>
+      <section className="section-block product-detail">
+        <div className="container product-detail__inner">
+          <h2 className="display">{product.name}</h2>
+          <div className="product-detail__copy">
+            {product.detailCopy.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
             <EmailCapture productName={product.name} subject={`${product.name} early access`} />
           </div>
         </div>

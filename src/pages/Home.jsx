@@ -6,14 +6,12 @@ import StatusIndicator from "../components/StatusIndicator";
 import { products } from "../data/products";
 
 export default function Home() {
-  const [coach, airmix, crave] = products;
-
   return (
     <main className="page-transition">
       <section className="home-hero hero-gradient motion-hero">
         <div className="container home-hero__inner">
           <div className="home-hero__presented">
-            <LogoLockup size={48} />
+            <LogoLockup size={72} />
           </div>
           <StatusIndicator />
           <div className="home-hero__copy">
@@ -50,11 +48,9 @@ export default function Home() {
           </div>
 
           <div className="product-grid">
-            <ProductCard product={coach} featured />
-            <div className="product-grid__stack">
-              <ProductCard product={airmix} />
-              <ProductCard product={crave} />
-            </div>
+            {products.map((product) => (
+              <ProductCard product={product} key={product.id} />
+            ))}
           </div>
         </div>
       </section>
@@ -76,20 +72,20 @@ export default function Home() {
   );
 }
 
-function ProductCard({ product, featured = false }) {
+function ProductCard({ product }) {
   return (
     <Card
       to={product.route}
       accent={product.primary}
-      className={featured ? "product-card product-card--featured" : "product-card"}
-      tall={featured}
+      className="product-card"
+      style={{ "--card-image": `url(${product.heroPhoto})` }}
     >
       <div className="product-card__hero-lockup">
-        <LogoLockup mark={product.logo} wordmark={product.name} size={featured ? 180 : 110} />
+        <LogoLockup mark={product.logo} wordmark={product.name} size={116} />
         <span className="product-card__price mono">{product.price}</span>
       </div>
       <div className="product-card__body">
-        <p>{featured ? product.cardCopy : product.summary}</p>
+        <p>{product.cardCopy}</p>
       </div>
       <div className="product-card__bottom">
         <p className="mono">
