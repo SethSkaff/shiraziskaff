@@ -35,35 +35,25 @@
   --container: min(100% - 40px, 1180px);
 }
 
-[data-theme="light"] {
-  --bg: #F4F4F5;
-  --surface: #E4E6EB;
-  --border: #C9CDD4;
-  --surface-elevated: #FAFAFA;
-  --border-elevated: #A1A1AA;
-  --text-primary: #0E0E10;
-  --text-secondary: #3F3F46;
-  --text-tertiary: #71717A;
-  --sse-silver: #363639;
-  --sse-silver-bright: #161618;
-}
-
 [data-product="coach"] {
   --page-accent-primary: var(--coach-primary);
   --page-accent: var(--coach-accent);
   --focus-ring: var(--coach-accent);
+  --product-hero-start: #0F1F18;
 }
 
 [data-product="airmix"] {
   --page-accent-primary: var(--airmix-primary);
   --page-accent: var(--airmix-accent);
   --focus-ring: var(--airmix-primary);
+  --product-hero-start: #1A0A12;
 }
 
 [data-product="crave"] {
   --page-accent-primary: var(--crave-primary);
   --page-accent: var(--crave-accent);
   --focus-ring: var(--crave-accent);
+  --product-hero-start: #1A0F0B;
 }
 
 @media (max-width: 640px) {

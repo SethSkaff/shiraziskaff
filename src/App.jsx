@@ -1,6 +1,8 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
+import PageMotion from "./components/PageMotion";
+import ScrollToTop from "./components/ScrollToTop";
 import About from "./pages/About";
 import AirMix from "./pages/AirMix";
 import Careers from "./pages/Careers";
@@ -15,6 +17,8 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <ScrollToTop />
+      <PageMotion />
       <Nav />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />

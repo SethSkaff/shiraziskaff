@@ -1,37 +1,22 @@
 import { Link } from "react-router-dom";
 
-function SyntheticMark({ size = 24 }) {
-  return (
-    <span
-      className="synthetic-mark"
-      style={{ width: size, height: size, minWidth: size }}
-      aria-hidden="true"
-    >
-      <span>S</span>
-    </span>
-  );
-}
-
 export default function LogoLockup({
-  mark,
+  mark = "/logos/sse-double-s.png",
   wordmark = "Shirazi Skaff Enterprises",
   to,
   size = 24,
   product = false,
   className = "",
 }) {
+  const isCoach = /coach/i.test(mark || "");
   const content = (
     <span className={`logo-lockup ${className}`.trim()}>
-      {mark ? (
-        <img
-          className="logo-lockup__mark"
-          src={mark}
-          alt=""
-          style={{ width: size, height: size }}
-        />
-      ) : (
-        <SyntheticMark size={size} />
-      )}
+      <img
+        className={`logo-lockup__mark ${isCoach ? "logo-lockup__mark--coach" : ""}`}
+        src={mark}
+        alt=""
+        style={{ width: size, height: size }}
+      />
       <span
         className={product ? "logo-lockup__wordmark logo-lockup__wordmark--product" : "logo-lockup__wordmark"}
       >

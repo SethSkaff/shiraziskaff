@@ -10,16 +10,17 @@ export default function Home() {
 
   return (
     <main className="page-transition">
-      <section className="home-hero hero-gradient">
+      <section className="home-hero hero-gradient motion-hero">
+        <HeroAtmosphere />
         <div className="container home-hero__inner">
           <div className="home-hero__presented">
-            <LogoLockup size={32} />
+            <img className="home-hero__full-logo" src="/logos/sse-full-logo.png" alt="Shirazi Skaff Enterprises" />
           </div>
           <StatusIndicator />
           <div className="home-hero__copy">
             <SectionLabel>00 / STUDIO</SectionLabel>
             <h1 className="display">
-              AI products, built <em>with intent.</em>
+              <AnimatedWords words={["AI", "products,", "built"]} /> <em><AnimatedWords words={["with", "intent."]} start={3} /></em>
             </h1>
             <p>
               Shirazi Skaff Enterprises is a vertical AI products studio founded by Kian
@@ -85,7 +86,7 @@ function ProductCard({ product, featured = false }) {
       tall={featured}
     >
       <div className="product-card__top">
-        <LogoLockup mark={product.logo} wordmark={product.name} size={featured ? 72 : 48} />
+        <LogoLockup mark={product.logo} wordmark={product.name} size={featured ? 180 : 96} />
         <span className="product-card__price mono">{product.price}</span>
       </div>
       <div className="product-card__body">
@@ -101,5 +102,23 @@ function ProductCard({ product, featured = false }) {
         </span>
       </div>
     </Card>
+  );
+}
+
+function AnimatedWords({ words, start = 0 }) {
+  return words.map((word, index) => (
+    <span className="word-reveal" style={{ "--word-delay": `${(start + index) * 60}ms` }} key={word}>
+      {word}
+    </span>
+  ));
+}
+
+function HeroAtmosphere() {
+  return (
+    <div className="hero-atmosphere" aria-hidden="true">
+      <span className="hero-blob hero-blob--one" />
+      <span className="hero-blob hero-blob--two" />
+      <span className="hero-spotlight" />
+    </div>
   );
 }

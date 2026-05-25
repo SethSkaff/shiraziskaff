@@ -1,4 +1,3 @@
-import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import LogoLockup from "./LogoLockup";
@@ -12,7 +11,6 @@ const navItems = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [lightMode, setLightMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -21,10 +19,6 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = lightMode ? "light" : "dark";
-  }, [lightMode]);
 
   return (
     <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
@@ -42,16 +36,6 @@ export default function Nav() {
               </NavLink>
             ),
           )}
-          <button
-            className={`theme-toggle ${lightMode ? "theme-toggle--light" : ""}`}
-            type="button"
-            aria-label="Toggle light mode"
-            aria-pressed={lightMode}
-            onClick={() => setLightMode((value) => !value)}
-          >
-            <Sun size={16} className="theme-toggle__sun" aria-hidden="true" />
-            <Moon size={16} className="theme-toggle__moon" aria-hidden="true" />
-          </button>
         </nav>
         <button
           className={`mobile-menu-button ${menuOpen ? "mobile-menu-button--open" : ""}`}
