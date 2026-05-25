@@ -1,63 +1,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap");
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --bg: #0E0E10;
-  --surface: #161618;
-  --border: #262629;
-  --surface-elevated: #1C1C1F;
-  --border-elevated: #363639;
-  --text-primary: #F4F4F5;
-  --text-secondary: #A1A1AA;
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --border: #E5E5E0;
+  --surface-elevated: #FFFFFF;
+  --border-elevated: #D4D4CE;
+  --text-primary: #0A0A0C;
+  --text-secondary: #52525B;
   --text-tertiary: #71717A;
-  --sse-silver: #C9CDD4;
-  --sse-silver-bright: #E4E6EB;
+  --sse-silver: #18181B;
+  --sse-silver-bright: #0A0A0C;
 
   --coach-primary: #0F3D2E;
   --coach-accent: #A8C4B4;
-  --airmix-primary: #FF2D6F;
-  --airmix-accent: #C0C0C8;
-  --crave-primary: #C8553D;
-  --crave-accent: #F5EDE2;
+  --airmix-primary: #D81E5B;
+  --airmix-accent: #FF8FB1;
+  --crave-primary: #A04030;
+  --crave-accent: #E8B8A0;
 
   --page-accent-primary: var(--sse-silver);
   --page-accent: var(--sse-silver-bright);
-  --focus-ring: var(--sse-silver-bright);
+  --focus-ring: #0A0A0C;
+  --product-hero-wash: radial-gradient(circle at 64% 20%, #FFFFFF 0%, #FAFAF7 68%);
+  --product-card-border: color-mix(in srgb, var(--page-accent-primary) 10%, var(--border));
 
   --font-display: "Instrument Serif", serif;
   --font-sans: "Geist", "Inter", system-ui, sans-serif;
   --font-mono: "Geist Mono", "SFMono-Regular", Consolas, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
-  --container: min(100% - 40px, 1180px);
+  --shadow-card: 0 1px 3px rgba(10, 10, 12, 0.08);
+  --shadow-card-hover: 0 12px 28px rgba(10, 10, 12, 0.12), 0 4px 8px rgba(10, 10, 12, 0.06);
+  --container: min(calc(100% - 40px), 1180px);
 }
 
 [data-product="coach"] {
   --page-accent-primary: var(--coach-primary);
-  --page-accent: var(--coach-accent);
-  --focus-ring: var(--coach-accent);
-  --product-hero-start: #0F1F18;
+  --page-accent: var(--coach-primary);
+  --focus-ring: var(--coach-primary);
+  --product-hero-wash: linear-gradient(135deg, #E8F0EA 0%, #FAFAF7 78%);
+  --product-card-border: color-mix(in srgb, var(--coach-primary) 10%, var(--border));
 }
 
 [data-product="airmix"] {
   --page-accent-primary: var(--airmix-primary);
-  --page-accent: var(--airmix-accent);
+  --page-accent: var(--airmix-primary);
   --focus-ring: var(--airmix-primary);
-  --product-hero-start: #1A0A12;
+  --product-hero-wash: linear-gradient(135deg, #FFE8EF 0%, #FAFAF7 78%);
+  --product-card-border: color-mix(in srgb, var(--airmix-primary) 10%, var(--border));
 }
 
 [data-product="crave"] {
   --page-accent-primary: var(--crave-primary);
-  --page-accent: var(--crave-accent);
-  --focus-ring: var(--crave-accent);
-  --product-hero-start: #1A0F0B;
+  --page-accent: var(--crave-primary);
+  --focus-ring: var(--crave-primary);
+  --product-hero-wash: linear-gradient(135deg, #FAF0E6 0%, #FAFAF7 78%);
+  --product-card-border: color-mix(in srgb, var(--crave-primary) 10%, var(--border));
 }
 
 @media (max-width: 640px) {
   :root {
-    --container: min(100% - 28px, 1180px);
+    --container: min(calc(100% - 28px), 1180px);
   }
 }

@@ -5,8 +5,10 @@ import SectionLabel from "../components/SectionLabel";
 export default function ProductPage({ product }) {
   return (
     <main className="page-transition product-page" data-product={product.id}>
-      <section className="product-hero hero-gradient motion-hero" style={{ "--hero-photo": `url(${product.heroPhoto})`, "--product-hero-gradient": product.heroGradient }}>
-        <HeroAtmosphere />
+      <section className="product-hero motion-hero" style={{ "--hero-photo": `url(${product.heroPhoto})` }}>
+        <div className="product-hero__sticky" aria-hidden="true">
+          <div className="product-hero__image" />
+        </div>
         <div className="container product-hero__inner">
           <SectionLabel>00 / PRODUCT</SectionLabel>
           <LogoLockup
@@ -60,17 +62,8 @@ export default function ProductPage({ product }) {
 function AnimatedText({ text }) {
   return text.split(" ").map((word, index) => (
     <span className="word-reveal" style={{ "--word-delay": `${index * 60}ms` }} key={`${word}-${index}`}>
-      {word}
+      {word}{" "}
     </span>
   ));
 }
 
-function HeroAtmosphere() {
-  return (
-    <div className="hero-atmosphere" aria-hidden="true">
-      <span className="hero-blob hero-blob--one" />
-      <span className="hero-blob hero-blob--two" />
-      <span className="hero-spotlight" />
-    </div>
-  );
-}

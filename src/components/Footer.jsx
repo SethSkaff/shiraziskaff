@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="site-footer__top">
-          <LogoLockup size={28} />
+          <LogoLockup size={42} />
           <nav className="site-footer__links" aria-label="Footer navigation">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>

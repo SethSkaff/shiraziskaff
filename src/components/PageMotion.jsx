@@ -19,31 +19,8 @@ export default function PageMotion() {
 
     sections.forEach((section) => observer.observe(section));
 
-    const updateScroll = () => {
-      document.querySelectorAll(".motion-hero").forEach((hero) => {
-        const rect = hero.getBoundingClientRect();
-        const offset = Math.max(-rect.top, 0) * 0.5;
-        hero.style.setProperty("--hero-parallax", `${offset}px`);
-      });
-    };
-
-    const updateCursor = (event) => {
-      document.querySelectorAll(".motion-hero").forEach((hero) => {
-        const rect = hero.getBoundingClientRect();
-        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) return;
-        hero.style.setProperty("--spotlight-x", `${event.clientX - rect.left}px`);
-        hero.style.setProperty("--spotlight-y", `${event.clientY - rect.top}px`);
-      });
-    };
-
-    updateScroll();
-    window.addEventListener("scroll", updateScroll, { passive: true });
-    window.addEventListener("mousemove", updateCursor, { passive: true });
-
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", updateScroll);
-      window.removeEventListener("mousemove", updateCursor);
     };
   });
 

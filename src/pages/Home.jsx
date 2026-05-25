@@ -11,10 +11,9 @@ export default function Home() {
   return (
     <main className="page-transition">
       <section className="home-hero hero-gradient motion-hero">
-        <HeroAtmosphere />
         <div className="container home-hero__inner">
           <div className="home-hero__presented">
-            <img className="home-hero__full-logo" src="/logos/sse-full-logo.png" alt="Shirazi Skaff Enterprises" />
+            <LogoLockup size={48} />
           </div>
           <StatusIndicator />
           <div className="home-hero__copy">
@@ -81,16 +80,15 @@ function ProductCard({ product, featured = false }) {
   return (
     <Card
       to={product.route}
-      accent={product.accent}
+      accent={product.primary}
       className={featured ? "product-card product-card--featured" : "product-card"}
       tall={featured}
     >
-      <div className="product-card__top">
-        <LogoLockup mark={product.logo} wordmark={product.name} size={featured ? 180 : 96} />
+      <div className="product-card__hero-lockup">
+        <LogoLockup mark={product.logo} wordmark={product.name} size={featured ? 180 : 110} />
         <span className="product-card__price mono">{product.price}</span>
       </div>
       <div className="product-card__body">
-        <h3 className="display">{product.name}</h3>
         <p>{featured ? product.cardCopy : product.summary}</p>
       </div>
       <div className="product-card__bottom">
@@ -108,17 +106,8 @@ function ProductCard({ product, featured = false }) {
 function AnimatedWords({ words, start = 0 }) {
   return words.map((word, index) => (
     <span className="word-reveal" style={{ "--word-delay": `${(start + index) * 60}ms` }} key={word}>
-      {word}
+      {word}{" "}
     </span>
   ));
 }
 
-function HeroAtmosphere() {
-  return (
-    <div className="hero-atmosphere" aria-hidden="true">
-      <span className="hero-blob hero-blob--one" />
-      <span className="hero-blob hero-blob--two" />
-      <span className="hero-spotlight" />
-    </div>
-  );
-}
