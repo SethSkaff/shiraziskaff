@@ -84,7 +84,7 @@ function ProductCard({ product }) {
         <LogoLockup
           mark={product.logo}
           wordmark={product.name}
-          size={product.id === "airmix" ? 203 : product.id === "crave" ? 196 : 116}
+          size={72}
         />
         <span className="product-card__price mono">{product.price}</span>
       </div>

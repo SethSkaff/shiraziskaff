@@ -545,24 +545,30 @@ img {
 }
 
 .product-card__hero-lockup {
-  align-items: flex-start;
+  min-height: 96px;
+  align-items: center;
 }
 
-.product-card--airmix .logo-lockup,
-.product-card--crave .logo-lockup {
-  gap: 0;
-}
-
-.product-card--crave .logo-lockup {
-  transform: translateY(-18px);
+.product-card .logo-lockup {
+  min-height: 96px;
+  align-items: center;
+  gap: 24px;
 }
 
 .product-card .logo-lockup__wordmark {
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: clamp(36px, 3.8vw, 52px);
+  font-size: clamp(42px, 4vw, 56px);
   font-weight: 700;
-  line-height: 0.94;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+}
+
+.product-card .logo-lockup__mark {
+  width: 72px !important;
+  height: 72px !important;
+  object-fit: contain;
 }
 
 .product-card__price {
@@ -572,8 +578,8 @@ img {
 }
 
 .product-card__body {
-  margin-top: auto;
-  padding-top: 44px;
+  margin-top: 192px;
+  padding-top: 0;
 }
 
 .product-card p {
