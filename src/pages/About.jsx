@@ -21,7 +21,7 @@ export default function About() {
             image="/assets/kian-photo-sm.jpg"
             meta="High school senior"
             body={[
-              "Kian is a high school senior who tutors math at Mathnasium and noticed the same thing every week. Students learn faster when someone is right there pointing at the paper. He has a background in computer science and programming, and he's interested in building AI tools that do that part: the actual coaching, not just the answer.",
+              "Kian tutors math at Mathnasium and noticed the same thing every week. Students learn faster when someone is right there pointing at the paper. He builds AI tools that do that part: the actual coaching, not just the answer.",
             ]}
           />
           <Founder
@@ -29,7 +29,7 @@ export default function About() {
             image="/assets/seth-photo-sm.jpg"
             meta="UCLA-bound"
             body={[
-              "Seth is going to UCLA in the fall to study Mathematics, Economics, and Data Science Engineering. He spends most of his time on politics, data, and media. He's interested in AI products that replace expensive expertise with software people can actually afford.",
+              "Seth is going to UCLA to study Mathematics, Economics, and Data Science Engineering. He spends his time on politics, data, and media, with an interest in AI products that make expensive expertise affordable.",
             ]}
           />
         </div>
