@@ -10,7 +10,6 @@ const navItems = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > Math.max(360, window.innerHeight * 0.62));
@@ -22,7 +21,7 @@ export default function Nav() {
   return (
     <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
       <div className="site-nav__inner container">
-        <LogoLockup to="/" size={54} />
+        <LogoLockup to="/" size={54} wordmark="Shirazi Skaff" />
         <nav className="site-nav__links" aria-label="Primary navigation">
           {navItems.map((item) =>
             item.to.startsWith("/#") ? (
@@ -36,33 +35,7 @@ export default function Nav() {
             ),
           )}
         </nav>
-        <button
-          className={`mobile-menu-button ${menuOpen ? "mobile-menu-button--open" : ""}`}
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          onClick={() => setMenuOpen((value) => !value)}
-        >
-          <span />
-          <span />
-        </button>
       </div>
-      <nav className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`} id="mobile-menu" aria-label="Mobile navigation">
-        <div className="container">
-          {navItems.map((item) =>
-            item.to.startsWith("/#") ? (
-              <a className="mobile-menu__link" href={item.to} key={item.label} onClick={() => setMenuOpen(false)}>
-                {item.label}
-              </a>
-            ) : (
-              <NavLink className="mobile-menu__link" to={item.to} key={item.label} onClick={() => setMenuOpen(false)}>
-                {item.label}
-              </NavLink>
-            ),
-          )}
-        </div>
-      </nav>
     </header>
   );
 }

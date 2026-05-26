@@ -528,7 +528,7 @@ img {
   padding: 28px;
   border-color: color-mix(in srgb, var(--card-accent, var(--page-accent-primary)) 10%, var(--border));
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.76) 38%, rgba(255, 255, 255, 0.42) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 40%, rgba(255, 255, 255, 0.52) 100%),
     url("/assets/noise.png"),
     var(--card-image),
     var(--surface);
@@ -704,6 +704,10 @@ img {
   object-fit: cover;
   object-position: top;
   filter: saturate(0.82) contrast(1.04);
+}
+
+article.founder:nth-of-type(1) img {
+  object-position: center 20%;
 }
 
 .founder h2 {
@@ -1075,82 +1079,19 @@ img {
   }
 
   .site-nav__inner {
-    min-height: 64px;
-    gap: 12px;
+    min-height: 52px;
+    gap: 8px;
+    padding-block: 10px;
   }
 
   .site-nav .logo-lockup__wordmark {
-    max-width: 104px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 14px;
   }
 
   .site-nav__links {
-    gap: 10px;
+    gap: 8px;
     font-size: 12px;
-  }
-
-  .site-nav__links .nav-link {
-    display: none;
-  }
-
-  .mobile-menu-button {
-    display: inline-grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--surface);
-    color: var(--text-primary);
-  }
-
-  .mobile-menu-button span {
-    display: block;
-    width: 14px;
-    height: 1px;
-    background: currentColor;
-    transition: transform 200ms var(--ease-out-expo);
-  }
-
-  .mobile-menu-button span + span {
-    margin-top: -8px;
-  }
-
-  .mobile-menu-button--open span:first-child {
-    transform: translateY(4px) rotate(45deg);
-  }
-
-  .mobile-menu-button--open span:last-child {
-    transform: translateY(-4px) rotate(-45deg);
-  }
-
-  .mobile-menu {
-    display: grid;
-    grid-template-rows: 0fr;
-    border-bottom: 1px solid transparent;
-    background: color-mix(in srgb, var(--bg) 94%, transparent);
-    transition:
-      grid-template-rows 200ms var(--ease-out-expo),
-      border-color 200ms var(--ease-out-expo);
-  }
-
-  .mobile-menu--open {
-    grid-template-rows: 1fr;
-    border-color: var(--border);
-  }
-
-  .mobile-menu .container {
-    display: grid;
-    gap: 14px;
-    padding-block: 16px 20px;
-    overflow: hidden;
-    min-height: 0;
-  }
-
-  .mobile-menu__link {
-    color: var(--text-primary);
-    font-size: 18px;
+    line-height: 1.5;
   }
 
   .home-hero,
@@ -1270,6 +1211,36 @@ img {
 
   .email-capture__row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Section A: products intro paragraph spans full container width, matching card row */
+  .products-section .section-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .products-section .section-heading p {
+    max-width: none;
+    margin-top: 16px;
+  }
+
+  /* Section B: principles align to the top of the heading, nudged down to match visual rhythm */
+  .work-section__grid {
+    align-items: start;
+  }
+
+  .work-section__grid .principles {
+    padding-top: 24px;
+  }
+
+  /* Section C: why-section paragraph spans full width (single child in a 2-col grid) */
+  .why-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-section p {
+    max-width: none;
   }
 }
 

@@ -81,7 +81,7 @@ function ProductCard({ product }) {
       style={{ "--card-image": `url(${product.heroPhoto})` }}
     >
       <div className="product-card__hero-lockup">
-        <LogoLockup mark={product.logo} wordmark={product.name} size={116} />
+        <LogoLockup mark={product.logo} wordmark={product.name} size={product.id === "crave" ? 174 : 116} />
         <span className="product-card__price mono">{product.price}</span>
       </div>
       <div className="product-card__body">

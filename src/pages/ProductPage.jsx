@@ -14,7 +14,7 @@ export default function ProductPage({ product }) {
           <LogoLockup
             mark={product.logo}
             wordmark={product.name}
-            size={104}
+            size={product.id === "crave" ? 312 : 208}
             product
             className="product-hero__lockup"
           />
