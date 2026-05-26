@@ -14,7 +14,7 @@ export default function Contact() {
           <SectionLabel>01 / CONTACT</SectionLabel>
           <h1 className="display">Start the conversation.</h1>
           <p>We read every note and aim to respond within two business days.</p>
-          <a className="contact-email" href="mailto:contact@shiraziskaff.com">
+          <a className="contact-email" href="mailto:sethskaff@yahoo.com">
             contact@shiraziskaff.com
           </a>
         </div>
@@ -26,7 +26,7 @@ export default function Contact() {
           {inquiries.map((inquiry) => (
             <a
               className="role-row"
-              href={`mailto:contact@shiraziskaff.com?subject=${encodeURIComponent(inquiry.subject)}`}
+              href={`mailto:sethskaff@yahoo.com?subject=${encodeURIComponent(inquiry.subject)}`}
               key={inquiry.label}
             >
               <span>{inquiry.label}</span>

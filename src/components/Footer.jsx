@@ -12,7 +12,7 @@ export default function Footer() {
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
           </nav>
-          <a className="site-footer__email" href="mailto:contact@shiraziskaff.com">
+          <a className="site-footer__email" href="mailto:sethskaff@yahoo.com">
             contact@shiraziskaff.com
           </a>
         </div>

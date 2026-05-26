@@ -77,11 +77,15 @@ function ProductCard({ product }) {
     <Card
       to={product.route}
       accent={product.primary}
-      className="product-card"
+      className={`product-card product-card--${product.id}`}
       style={{ "--card-image": `url(${product.heroPhoto})` }}
     >
       <div className="product-card__hero-lockup">
-        <LogoLockup mark={product.logo} wordmark={product.name} size={product.id === "crave" ? 261 : 116} />
+        <LogoLockup
+          mark={product.logo}
+          wordmark={product.name}
+          size={product.id === "airmix" ? 203 : product.id === "crave" ? 196 : 116}
+        />
         <span className="product-card__price mono">{product.price}</span>
       </div>
       <div className="product-card__body">
