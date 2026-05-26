@@ -548,7 +548,8 @@ img {
   width: 100%;
   min-height: 96px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0;
 }
 
 .product-card .logo-lockup {
@@ -576,14 +577,19 @@ img {
 
 .product-card__price {
   flex-shrink: 0;
-  margin-left: auto;
+  margin-left: clamp(32px, 3vw, 52px);
   color: var(--text-tertiary);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.08em;
-  line-height: 1.35;
+  line-height: 1.25;
   text-align: left;
   text-transform: uppercase;
+  transform: translateY(2px);
   white-space: nowrap;
+}
+
+.product-card__price--crave {
+  text-transform: none;
 }
 
 .product-card__body {

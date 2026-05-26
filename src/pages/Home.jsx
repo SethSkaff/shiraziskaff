@@ -88,14 +88,17 @@ function ProductCard({ product }) {
           wordmark={product.name}
           size={72}
         />
-        <span className="product-card__price mono">
+        <span className={`product-card__price mono ${product.id === "crave" ? "product-card__price--crave" : ""}`}>
           {metaParts.length === 2 ? (
             <>
               {metaParts[0]} /<br />
               {metaParts[1]}
             </>
           ) : (
-            product.price
+            <>
+              {product.price.split(" ")[0]}<br />
+              {product.price.split(" ").slice(1).join(" ")}
+            </>
           )}
         </span>
       </div>
