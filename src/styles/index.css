@@ -761,6 +761,7 @@ img {
 
 .product-page {
   background: var(--product-hero-wash);
+  isolation: isolate;
 }
 
 .product-page .section-block {
@@ -775,23 +776,28 @@ img {
 }
 
 .product-hero__sticky {
-  position: sticky;
+  position: fixed;
+  z-index: 0;
   top: 0;
+  right: 0;
+  left: 0;
   height: 100vh;
   min-height: 620px;
   overflow: hidden;
   background: var(--product-hero-wash);
+  pointer-events: none;
 }
 
 .product-hero__image {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--bg) 92%, transparent) 0%, color-mix(in srgb, var(--bg) 68%, transparent) 46%, color-mix(in srgb, var(--bg) 34%, transparent) 100%),
+    linear-gradient(90deg, color-mix(in srgb, var(--bg) 96%, transparent) 0%, color-mix(in srgb, var(--bg) 78%, transparent) 46%, color-mix(in srgb, var(--bg) 48%, transparent) 100%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg) 86%, transparent) 0%, color-mix(in srgb, var(--bg) 42%, transparent) 100%),
     var(--hero-photo);
   background-position: center;
   background-size: cover;
-  opacity: 0.78;
+  opacity: 0.86;
   transform: scale(1.02);
 }
 
@@ -811,7 +817,7 @@ img {
   gap: 48px;
   width: var(--container);
   min-height: 100vh;
-  margin-top: -100vh;
+  margin-top: 0;
   padding-top: 112px;
 }
 
@@ -825,6 +831,7 @@ img {
 
 .product-hero__copy {
   max-width: 940px;
+  text-shadow: 0 1px 18px color-mix(in srgb, var(--bg) 88%, transparent);
 }
 
 .product-hero__meta {
@@ -949,6 +956,13 @@ img {
   grid-template-columns: minmax(220px, 0.38fr) minmax(0, 1fr);
   gap: 72px;
   align-items: start;
+}
+
+.product-detail {
+  position: relative;
+  z-index: 3;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(16px);
 }
 
 .product-detail h2 {
@@ -1151,15 +1165,15 @@ img {
   }
 
   .product-hero__sticky {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    height: 100%;
+    height: 100vh;
     min-height: 0;
   }
 
   .product-hero__image {
     background:
-      linear-gradient(180deg, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 72%, transparent) 100%),
+      linear-gradient(180deg, color-mix(in srgb, var(--bg) 94%, transparent) 0%, color-mix(in srgb, var(--bg) 78%, transparent) 100%),
       var(--hero-photo);
     background-position: center;
     background-size: cover;
