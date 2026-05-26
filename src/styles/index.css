@@ -1253,10 +1253,28 @@ article.founder:nth-of-type(1) img {
 
   .product-card__hero-lockup {
     min-height: 82px;
+    align-items: center;
+    flex-direction: row;
   }
 
   .product-card .logo-lockup {
     min-height: 82px;
+    gap: 12px;
+  }
+
+  .product-card .logo-lockup__mark {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .product-card .logo-lockup__wordmark {
+    font-size: clamp(34px, 10vw, 40px);
+  }
+
+  .product-card__price {
+    margin-left: 18px;
+    font-size: 9px;
+    line-height: 1.2;
   }
 
   .product-card__body {
