@@ -73,6 +73,8 @@ export default function Home() {
 }
 
 function ProductCard({ product }) {
+  const metaParts = product.price.includes(" / ") ? product.price.split(" / ") : [product.price];
+
   return (
     <Card
       to={product.route}
@@ -86,7 +88,16 @@ function ProductCard({ product }) {
           wordmark={product.name}
           size={72}
         />
-        <span className="product-card__price mono">{product.price}</span>
+        <span className="product-card__price mono">
+          {metaParts.length === 2 ? (
+            <>
+              {metaParts[0]} /<br />
+              {metaParts[1]}
+            </>
+          ) : (
+            product.price
+          )}
+        </span>
       </div>
       <div className="product-card__body">
         <p>{product.cardCopy}</p>

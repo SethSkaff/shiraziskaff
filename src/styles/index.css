@@ -545,14 +545,17 @@ img {
 }
 
 .product-card__hero-lockup {
+  width: 100%;
   min-height: 96px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .product-card .logo-lockup {
   min-height: 96px;
   align-items: center;
   gap: 24px;
+  min-width: 0;
 }
 
 .product-card .logo-lockup__wordmark {
@@ -572,9 +575,15 @@ img {
 }
 
 .product-card__price {
+  flex-shrink: 0;
+  margin-left: auto;
   color: var(--text-tertiary);
   font-size: 11px;
   letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .product-card__body {
