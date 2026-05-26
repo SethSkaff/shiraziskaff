@@ -1251,6 +1251,34 @@ article.founder:nth-of-type(1) img {
     padding: 22px;
   }
 
+  .product-card__hero-lockup {
+    min-height: 82px;
+  }
+
+  .product-card .logo-lockup {
+    min-height: 82px;
+  }
+
+  .product-card__body {
+    margin-top: 54px;
+  }
+
+  .product-card p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .product-card__bottom {
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 14px;
+  }
+
+  .product-card__bottom p {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
   .logo-lockup__wordmark--product {
     font-size: clamp(48px, 17vw, 76px);
   }
